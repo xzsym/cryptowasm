@@ -1,6 +1,6 @@
 {
   "name": "cryptowasm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This very simple example shows usage of WebAssembly.",
   "main": "dist/math.js",
   "scripts": {
