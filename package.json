@@ -1,8 +1,8 @@
 {
   "name": "cryptowasm",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This very simple example shows usage of WebAssembly.",
-  "main": "dist/math.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "clean": "rm -rf dist",
