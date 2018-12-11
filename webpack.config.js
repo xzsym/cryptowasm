@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	entry: {
-		math: './src/index'
+		index: './src/index'
 	},
 	// mode: "development || "production",
 	output: {
