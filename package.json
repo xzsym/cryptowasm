@@ -1,0 +1,28 @@
+{
+  "name": "cryptowasm",
+  "version": "1.0.1",
+  "description": "This very simple example shows usage of WebAssembly.",
+  "main": "dist/math.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xzsym/cryptowasm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xzsym/cryptowasm/issues"
+  },
+  "homepage": "https://github.com/xzsym/cryptowasm#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.6.0",
+    "ts-loader": "^5.3.1",
+    "typescript": "^3.2.2",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
