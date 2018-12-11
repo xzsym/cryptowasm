@@ -9,6 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		webassemblyModuleFilename: "[modulehash].wasm",
+		globalObject: 'this',
 		publicPath: "js/"
 	},
 	module: {
