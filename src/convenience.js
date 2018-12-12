@@ -212,7 +212,7 @@ Convenience.decrypt = function(key, ciphertext) {
         if (typeof mode === 'number' && mode === 1) {
             pt = Algos.AESCBCDecrypt(b2b64(ctData.iv), key, b2b64(ctData.ct), function() { return true; });
         } else {
-            pt = Algos.AESGCMDecrypt(b2b64(ctData.iv), b2b64(ctData.ad), key, b2b64(ctData.ct));
+            pt = WASMCipher.AESGCMDecrypt(b2b64(ctData.iv), b2b64(ctData.ad), key, b2b64(ctData.ct));
         }
     } catch(e) {
         return false;

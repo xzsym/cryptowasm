@@ -1245,6 +1245,7 @@ var __ATPOSTRUN__ = []; // functions called after the main() is called
 var runtimeInitialized = false;
 var runtimeExited = false;
 
+module.exports = Module;
 
 function preRun() {
   // compatibility - merge in anything from Module['preRun'] at this time

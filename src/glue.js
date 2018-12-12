@@ -67,55 +67,54 @@ function AESGCMEncrypt(Base64IV, Base64AAD, Base64Key, Base64In) {
 }
 
 function AESGCMDecrypt(Base64IV, Base64AAD, Base64Key, Base64In) {
-    return Base64In;
-    // const iv = base64ToUint8Array(Base64IV);
-    // const ivBuffer = Module._malloc(iv.length);
-    // Module.HEAPU8.set(iv, ivBuffer);
+    const iv = base64ToUint8Array(Base64IV);
+    const ivBuffer = Module._malloc(iv.length);
+    Module.HEAPU8.set(iv, ivBuffer);
 
-    // const aad = base64ToUint8Array(Base64AAD);
-    // const aadBuffer = Module._malloc(aad.length);
-    // Module.HEAPU8.set(aad, aadBuffer);
+    const aad = base64ToUint8Array(Base64AAD);
+    const aadBuffer = Module._malloc(aad.length);
+    Module.HEAPU8.set(aad, aadBuffer);
 
-    // const key = base64ToUint8Array(Base64Key);
-    // const keyBuffer = Module._malloc(key.length);
-    // Module.HEAPU8.set(key, keyBuffer);
+    const key = base64ToUint8Array(Base64Key);
+    const keyBuffer = Module._malloc(key.length);
+    Module.HEAPU8.set(key, keyBuffer);
 
-    // const _in = base64ToUint8Array(Base64In);
-    // const _inBuffer = Module._malloc(_in.length);
-    // Module.HEAPU8.set(_in, _inBuffer);
+    const _in = base64ToUint8Array(Base64In);
+    const _inBuffer = Module._malloc(_in.length);
+    Module.HEAPU8.set(_in, _inBuffer);
 
-    // const out = new Uint8Array(_in.length - 16);
-    // const outBuffer = Module._malloc(out.length);
-    // Module.HEAPU8.set(out, outBuffer);
+    const out = new Uint8Array(_in.length - 16);
+    const outBuffer = Module._malloc(out.length);
+    Module.HEAPU8.set(out, outBuffer);
 
-    // const CipherTextLen = _in.length - tagLength;
-    // const tag = _in.slice(CipherTextLen, _in.length);
-    // const tagBuffer = Module._malloc(tag.length);
-    // Module.HEAPU8.set(tag, tagBuffer);
+    const CipherTextLen = _in.length - tagLength;
+    const tag = _in.slice(CipherTextLen, _in.length);
+    const tagBuffer = Module._malloc(tag.length);
+    Module.HEAPU8.set(tag, tagBuffer);
 
-    // const resultLength =
-    // Module.ccall('JSAESDecryptGCM', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number', 'number', 'number' ],
-    //             [_inBuffer, CipherTextLen, aadBuffer, aad.length, tagBuffer, tagLength, keyBuffer, ivBuffer, iv.length, outBuffer]);
+    const resultLength =
+    Module.ccall('JSAESDecryptGCM', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number', 'number', 'number' ],
+                [_inBuffer, CipherTextLen, aadBuffer, aad.length, tagBuffer, tagLength, keyBuffer, ivBuffer, iv.length, outBuffer]);
 
-    // if (resultLength < 0) {
-    //     console.log('decrypt failed');
-    // }
+    if (resultLength < 0) {
+        console.log('decrypt failed');
+    }
 
-    // const decryptedArbuf = Module.HEAPU8.subarray(outBuffer, outBuffer+out.length);
+    const decryptedArbuf = Module.HEAPU8.subarray(outBuffer, outBuffer+out.length);
 
-    // // const str = String.fromCharCode.apply(null,decryptedArbuf);
-    // // console.log('decrypted str = ', str);
+    // const str = String.fromCharCode.apply(null,decryptedArbuf);
+    // console.log('decrypted str = ', str);
 
-    // const decryptedBase64 = Uint8ArrayToBase64(decryptedArbuf);
+    const decryptedBase64 = Uint8ArrayToBase64(decryptedArbuf);
 
-    // Module._free(ivBuffer);
-    // Module._free(aadBuffer);
-    // Module._free(keyBuffer);
-    // Module._free(_inBuffer);
-    // Module._free(outBuffer);
-    // Module._free(tagBuffer);
+    Module._free(ivBuffer);
+    Module._free(aadBuffer);
+    Module._free(keyBuffer);
+    Module._free(_inBuffer);
+    Module._free(outBuffer);
+    Module._free(tagBuffer);
 
-    // return decryptedBase64;
+    return decryptedBase64;
 }
 
 // window.ssf = {

@@ -1,6 +1,6 @@
 {
   "name": "cryptowasm",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This very simple example shows usage of WebAssembly.",
   "main": "src/index.js",
   "scripts": {
