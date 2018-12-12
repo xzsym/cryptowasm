@@ -4,6 +4,12 @@ export interface Math {
     fibonacci(a: number): number;
 }
 
+export interface Empty {
+    empty: string;
+}
+
 declare module 'cryptowasm' {
-    export default function(): Promise<Math>; }
+    export function getMath(): Promise<Math>;
+    export function getEmpty(): Promise<Empty>;
+}
 
