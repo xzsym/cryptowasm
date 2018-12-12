@@ -1,15 +1,14 @@
-export interface Math {
-    add(a: number, b: number): number;
-    factorial(a: number): number;
-    fibonacci(a: number): number;
-}
-
-export interface Empty {
-    empty: string;
+export interface EcryptMeta {
+    key: string;
+    plaintext: string;
+    podId: string;
+    rotationId: string;
+    usePassword: boolean;
+    versionn: string;
 }
 
 declare module 'cryptowasm' {
-    export function getMath(): Promise<Math>;
-    export function getEmpty(): Promise<Empty>;
+    export function encrypt(meta: EcryptMeta): string;
+    export function decrypt(key: string, content: string): string;
 }
 
